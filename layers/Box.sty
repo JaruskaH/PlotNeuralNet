@@ -6,7 +6,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tikzset{Box/.pic={\tikzset{/boxblock/.cd,#1}
         \tikzstyle{box}=[every edge/.append style={pic actions, densely dashed, opacity=.7},fill opacity=\opacity, pic actions,fill=\fill]
-        
+        \tikzstyle{box2}=[every edge/.append style={pic actions, densely dashed, opacity=.7},fill opacity=\opacity, pic actions,fill=\colorshadow]
+
         \pgfmathsetmacro{\y}{\cubey*\scale}
         \pgfmathsetmacro{\z}{\cubez*\scale}
    
@@ -26,7 +27,7 @@
             \coordinate (g) at (\k-\x ,-\y/2 ,-\z/2); 
             \coordinate (h) at (\k-\x , \y/2 ,-\z/2); 
         
-            \draw [box] 
+            \draw [box2] 
                 (d) -- (a) -- (b) -- (c) -- cycle     
                 (d) -- (a) -- (h) -- (e) -- cycle
                 %dotted edges
@@ -57,7 +58,7 @@
         \coordinate (\name-east)   at (\LastEastx, 0,0) ;
         \coordinate (\name-north)  at (\LastEastx/2,\y/2,0);
         \coordinate (\name-south)  at (\LastEastx/2,-\y/2,0);       
-        \coordinate (\name-anchor) at (\LastEastx/2, 0,0) ;
+        \coordinate (\name-anchor) at (0, 0,0) ;
         
         \coordinate (\name-near) at (\LastEastx/2,0,\z/2);
         \coordinate (\name-far)  at (\LastEastx/2,0,-\z/2);       
@@ -96,6 +97,7 @@
     name/.store         in=\name,
     fill/.store         in=\fill,
     opacity/.store      in=\opacity,
+    colorshadow/.store      in=\colorshadow,
     fill={rgb:red,5;green,5;blue,5;white,15},
     opacity=0.4,
     width=2,
