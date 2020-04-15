@@ -57,44 +57,20 @@ arch = [
         widths = [25,2,40,2],
         colors = ['white,15','orange,15','orange,15','orange,15']),
     *createChain(to_Conv,\
-        {'s_filer':256, 'n_filer':64, 'offset':"(5,0,0)", 'height':45, 'depth':45, 'width':2,'color':'red,15'},\
+        {'s_filer':256, 'n_filer':64, 'offset':"(5,0,0)", 'height':45, 'depth':45, 'width':20,'color':'red,15'},\
         start_from="(ccr_b44-east)",\
         base_name='ccr_b5',\
         multiple=1,
-        widths = [8],
+        widths = [20],
         colors = ['white,15']),
     *createChain(to_Conv,\
-        {'s_filer':256, 'n_filer':64, 'offset':"(3,0,0)", 'height':40, 'depth':40, 'width':2,'color':'red,15'},\
+        {'s_filer':256, 'n_filer':64, 'offset':"(8,0,0)", 'height':60, 'depth':60, 'width':10,'color':'red,15'},\
         start_from="(ccr_b51-east)",\
         base_name='ccr_b6',\
-        multiple=3,
-        widths = [4,4,4],
-        colors = ['green,15','yellow,15','blue,15']),
-    *createChain(to_Conv,\
-        {'s_filer':256, 'n_filer':64, 'offset':"(4,0,0)", 'height':45, 'depth':45, 'width':2,'color':'red,15'},\
-        start_from="(ccr_b63-east)",\
-        base_name='ccr_b7',\
         multiple=1,
-        widths = [8],
-        colors = ['white,15']),
-    *createChain(to_Conv,\
-        {'s_filer':256, 'n_filer':64, 'offset':"(3,0,0)", 'height':40, 'depth':40, 'width':2,'color':'red,15'},\
-        start_from="(ccr_b71-east)",\
-        base_name='ccr_b8',\
-        multiple=3,
-        widths = [4,4,4],
-        colors = ['green,15','yellow,15','blue,15']),
-    *createChain(to_Conv,\
-        {'s_filer':256, 'n_filer':64, 'offset':"(4,0,0)", 'height':45, 'depth':45, 'width':2,'color':'red,15'},\
-        start_from="(ccr_b83-east)",\
-        base_name='ccr_b9',\
-        multiple=1,
-        widths = [8],
+        widths = [10],
         colors = ['white,15']),
 
-    to_Conv('ccr_b101', 256, 64, offset="(0,12,0)", to="(ccr_b91-north)", height=50, depth=50, width=6,color='white,15'),
-    to_Conv('ccr_b102', 256, 64, offset="(0,12,0)", to="(ccr_b71-north)", height=50, depth=50, width=6,color='white,15'),
-    to_Conv('ccr_b103', 256, 64, offset="(0,12,0)", to="(ccr_b51-north)", height=50, depth=50, width=6,color='white,15'),
     # to_connection( "ccr_b91", "ccr_b101"),
     # to_connection( "ccr_b71", "ccr_b102"),
     # to_connection( "ccr_b51", "ccr_b103"),

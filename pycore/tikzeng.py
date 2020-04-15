@@ -35,7 +35,7 @@ def to_begin():
 
 # layers definition
 
-def to_input( pathfile, to='(0,0,0)', width=20, height=20, name="temp" ):
+def to_input( pathfile, to='(-3,0,0)', width=20, height=20, name="temp" ):
     return r"""
 \node[canvas is zy plane at x=0] (""" + name + """) at """+ to +""" {\includegraphics[width="""+ str(width)+"cm"+""",height="""+ str(height)+"cm"+"""]{"""+ pathfile +"""}};
 """
@@ -47,8 +47,8 @@ def to_Conv( name, s_filer=256, n_filer=64, offset="(0,0,0)", to="(0,0,0)", widt
     {Box={
         name=""" + name +""",
         caption="""+ caption +r""",
-        xlabel={{"""+ str(n_filer) +""", }},
-        zlabel="""+ str(s_filer) +""",
+        xlabel={{"""+ str() +""", }},
+        zlabel="""+ str() +""",
         fill="""+ "{rgb:"+color+";white,7}" +""",
         opacity="""+ str(0.8) +""",
         colorshadow="""+ "{rgb:"+color+";white,3}" +""",
