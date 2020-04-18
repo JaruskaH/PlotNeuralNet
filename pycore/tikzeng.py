@@ -25,17 +25,17 @@ def to_cor():
 
 def to_begin():
     return r"""
-\newcommand{\copymidarrow}{\tikz \draw[-Stealth,line width=0.8mm,draw={rgb:blue,4;red,1;green,1;black,3}] (-0.3,0) -- ++(0.3,0);}
+\newcommand{\copymidarrow}{\tikz \draw[-Stealth,line width=2.1mm,draw={rgb:black,15}] (-0.3,0) -- ++(0.3,0);}
 
 \begin{document}
 \begin{tikzpicture}
-\tikzstyle{connection}=[ultra thick,every node/.style={sloped,allow upside down},draw=\edgecolor,opacity=0.7]
-\tikzstyle{copyconnection}=[ultra thick,every node/.style={sloped,allow upside down},draw={rgb:blue,4;red,1;green,1;black,3},opacity=0.7]
+\tikzstyle{connection}=[ultra thick,every node/.style={sloped,allow upside down},draw=\edgecolor,opacity=1,line width=1.5mm, loosely dotted]
+\tikzstyle{copyconnection}=[ultra thick,every node/.style={sloped,allow upside down},draw={rgb:black,15},opacity=1, line width=1.5mm, loosely dotted]
 """
 
 # layers definition
 
-def to_input( pathfile, to='(-3,0,0)', width=20, height=20, name="temp" ):
+def to_input( pathfile, to='(-3,0,0)', width=40, height=40, name="temp" ):
     return r"""
 \node[canvas is zy plane at x=0] (""" + name + """) at """+ to +""" {\includegraphics[width="""+ str(width)+"cm"+""",height="""+ str(height)+"cm"+"""]{"""+ pathfile +"""}};
 """
@@ -168,20 +168,22 @@ def to_SoftMax( name, s_filer=10, offset="(0,0,0)", to="(0,0,0)", width=1.5, hei
 """
 
 
-def to_connection( of, to):
+def to_connection_horizontal( of, to):
     return r"""
 \draw [connection]  ("""+of+"""-east)    -- node {\midarrow} ("""+to+"""-west);
 """
 
-def to_skip( of, to, pos=1.25):
+def to_connection_vertical( of, to):
     return r"""
-\path ("""+ of +"""-southeast) -- ("""+ of +"""-northeast) coordinate[pos="""+ str(pos) +"""] ("""+ of +"""-top) ;
-\path ("""+ to +"""-south)  -- ("""+ to +"""-north)  coordinate[pos="""+ str(pos) +"""] ("""+ to +"""-top) ;
-\draw [copyconnection]  ("""+of+"""-northeast)  
--- node {\copymidarrow}("""+of+"""-top)
--- node {\copymidarrow}("""+to+"""-top)
--- node {\copymidarrow} ("""+to+"""-north);
+\draw [connection]  ("""+of+"""-north)    -- node {\midarrow} ("""+to+"""-south);
 """
+
+def to_skip( of, to, anchor_num=1):
+    return r"""
+\draw [copyconnection]  ("""+of+"""-south)  
+-- node {\copymidarrow}("""+of+"""-southanchor"""+str(anchor_num)+""")
+-- node {\copymidarrow}("""+to+"""-southanchor"""+str(anchor_num)+""")
+-- node {\copymidarrow} ("""+to+"""-south);"""
 
 def to_end():
     return r"""

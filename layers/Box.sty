@@ -5,8 +5,8 @@
 % Can be used for conv, deconv etc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tikzset{Box/.pic={\tikzset{/boxblock/.cd,#1}
-        \tikzstyle{box}=[every edge/.append style={pic actions, densely dashed, opacity=.7},fill opacity=\opacity, pic actions,fill=\fill]
-        \tikzstyle{box2}=[every edge/.append style={pic actions, densely dashed, opacity=.7},fill opacity=\opacity, pic actions,fill=\colorshadow]
+        \tikzstyle{box}=[every edge/.append style={pic actions, densely dashed, opacity=.7},fill opacity=\opacity, pic actions,fill=\fill,line width=1mm,]
+        \tikzstyle{box2}=[every edge/.append style={pic actions, densely dashed, opacity=.7},fill opacity=\opacity, pic actions,fill=\colorshadow,line width=1mm,]
 
         \pgfmathsetmacro{\y}{\cubey*\scale}
         \pgfmathsetmacro{\z}{\cubez*\scale}
@@ -57,7 +57,11 @@
         \coordinate (\name-west)   at (0,0,0) ;
         \coordinate (\name-east)   at (\LastEastx, 0,0) ;
         \coordinate (\name-north)  at (\LastEastx/2,\y/2,0);
-        \coordinate (\name-south)  at (\LastEastx/2,-\y/2,0);       
+        \coordinate (\name-south)  at (\LastEastx/2,-\y/2,0); 
+        \coordinate (\name-southanchor3)  at (\LastEastx/2,-14,0);     
+        \coordinate (\name-southanchor2)  at (\LastEastx/2,-12,0);
+        \coordinate (\name-southanchor1)  at (\LastEastx/2,-10,0);  
+      
         \coordinate (\name-anchor) at (0, 0,0) ;
         
         \coordinate (\name-near) at (\LastEastx/2,0,\z/2);
